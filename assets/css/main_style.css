@@ -59,6 +59,53 @@ body{
     margin:0;
     direction: rtl;
 }
+
+/* Start loader style */
+  #loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-color);
+  }
+  #loader .animation span{    
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    background: #FFF;
+    border-radius: 50%;
+  
+   }
+    #loader .animation span:nth-of-type(1){
+    animation: Loading 1s linear 0s infinite;
+   }
+    #loader .animation span:nth-of-type(2){
+    animation: Loading 1s linear 0.3s infinite;
+   }
+    #loader .animation span:nth-of-type(3){
+    animation: Loading 1s linear .6s infinite;
+   }
+   
+   @keyframes Loading {
+    0%{
+      transform: translateY(0);
+    }
+    50%{
+      transform: translateY(-25px);
+    }
+    0%{
+      transform: translateY(0);
+    }
+    
+   }
+/* End loader style */
+
+/* Start Main Header Section */
 .main-header .navbar{
     position: fixed;
     left: 0;
@@ -157,8 +204,32 @@ body{
     transform: translateY(-100px);
     box-shadow: 0px 50px 51px #e6e6e6;
     padding: 120px 60px 80px 60px;
+    position: relative;
 
    }
+   .survey::before{
+    content: "";
+    position: absolute;
+    top:-30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 60px;
+    border-radius: 20px;
+    background-color: var(--main-color);
+   }
+   .survey::after{
+    content: "";
+    position: absolute;
+    top:-15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FFF;
+   }
+   
    .survey .flex-box {
     display: flex;
     justify-content: space-between;
@@ -212,7 +283,7 @@ body{
     position: absolute;
     width: 100%;
     height:130px;
-    padding: 0 20px;
+    padding:  20px;
     outline: none;
     font-size: 17px;
     color: #666;
@@ -344,6 +415,10 @@ body{
         padding: 100px 10px;
         transform: translateY(-150px);
 
+    }
+    .survey::after,
+    .survey::before {
+      display: none;
     }
     .survey .action .main_btn{
       width: 100% !important;

@@ -39,7 +39,7 @@ let submit_button=document.getElementById("submit_form");
 checkName=()=>{
     if(studentName.value==""){
 
-        errorMessages[0].textContent="هذا الحقل مطلوب";
+        errorMessages[0].textContent="this Field Is Required";
         return false;
     }
     else{
@@ -53,11 +53,11 @@ checkName=()=>{
 checkStudentNumber=()=>{
     if(studentNumber.value==""){
 
-        errorMessages[1].textContent="هذا الحقل مطلوب";
+        errorMessages[1].textContent="this Field Is Required";
         return false;
     }
     else if(!studentNumber.value.match(/^[0-9]+$/)){
-        errorMessages[1].textContent=" الرقم غير صحيح";
+        errorMessages[1].textContent="Number Not Valid";
         return false;
     }
     else{
@@ -71,7 +71,7 @@ checkStudentNumber=()=>{
 checkCourseName=()=>{
     if(CourseName.value==""){
 
-        errorMessages[2].textContent="هذا الحقل مطلوب";
+        errorMessages[2].textContent="this Field Is Required";
         return false;
     }
     else{
@@ -85,7 +85,7 @@ checkCourseName=()=>{
 checkeAcadimicYear=()=>{
     if(academicYear.value==""){
 
-        errorMessages[3].textContent="هذا الحقل مطلوب";
+        errorMessages[3].textContent="this Field Is Required";
         return false;
     }
   
@@ -99,11 +99,11 @@ checkeAcadimicYear=()=>{
 checkeUnitNum=()=>{
     if(unitNum.value==""){
 
-        errorMessages[4].textContent="هذا الحقل مطلوب";
+        errorMessages[4].textContent="this Field Is Required";
         return false;
     }
     else if(!studentNumber.value.match(/^[0-9]+$/)){
-        errorMessages[4].textContent=" الرقم غير صحيح";
+        errorMessages[4].textContent="Number Not Valid";
         return false;
     }
     else{
@@ -117,7 +117,7 @@ checkeUnitNum=()=>{
 checkUnitStatus=()=>{
     if(unitStatus.value==""){
 
-        errorMessages[5].textContent="هذا الحقل مطلوب";
+        errorMessages[5].textContent="this Field Is Required";
         return false;
     }
   
@@ -132,11 +132,11 @@ checkUnitStatus=()=>{
 checkalternativeUnit=()=>{
     if(alternativeUnit.value==""){
 
-        errorMessages[6].textContent="هذا الحقل مطلوب";
+        errorMessages[6].textContent="this Field Is Required";
         return false;
     }
     else if(!studentNumber.value.match(/^[0-9]+$/)){
-        errorMessages[6].textContent=" الرقم غير صحيح";
+        errorMessages[6].textContent="Number Not Valid";
         return false;
     }
   
@@ -149,9 +149,8 @@ checkalternativeUnit=()=>{
 }
 checkNotes=()=>{
     if(Notes.value==""){
-        console.log( errorMessages[8])
 
-        errorMessages[7].textContent="هذا الحقل مطلوب";
+        errorMessages[7].textContent="this Field Is Required";
         return false;
     }
   
@@ -195,7 +194,7 @@ submit_button.addEventListener("click",(e)=>{
              }
              else{
                 alertDiv.classList.add("error","active")
-                alertMessage.innerHTML=`<img src="assets/images/error.webp" loading="lazy" alt=""><span >عفوا , مسموح لك بارسال رسالة واحدة</span>`;
+                alertMessage.innerHTML=`<img src="assets/images/error.webp" loading="lazy" alt=""><span >Sorry ,one Message is Allowed To send</span>`;
                 submit_button.innerHTML="إرسال";
                 submit_button.disabled = false;
 
@@ -247,7 +246,7 @@ function sendEmail(){
     emailjs.send(serviceID,templateID,params)
     .then(function() {
         alertDiv.classList.add("success","active");
-        alertMessage.innerHTML=`<img src="assets/images/success.webp" loading="lazy" alt=""><span >تم إرسال رسالتك بنجاح</span>`;
+        alertMessage.innerHTML=`<img src="assets/images/success.webp" loading="lazy" alt=""><span >Your message  sent successfully</span>`;
         submit_button.disabled = false;
         submit_button.innerHTML="إرسال";
 
@@ -261,7 +260,7 @@ function sendEmail(){
         },5000);
     }, function(error) {
         alertDiv.classList.add("error","active")
-        alertMessage.innerHTML=`<img src="assets/images/error.webp" loading="lazy" alt=""><span >تعذر إرسال الرسالة"</span>`;
+        alertMessage.innerHTML=`<img src="assets/images/error.webp" loading="lazy" alt=""><span >Sorry we can not send your Message</span>`;
         sendEmail();
        interval= setTimeout(()=>{
         alertDiv.classList.remove("active","error");

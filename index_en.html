@@ -107,8 +107,8 @@
                         <div class="input-container">
                             <select type="text" id="unitStatus" class="select" placeholder="" required>
                                 <option  selected disabled  value=""></option>
-                                <option value="">Goog</option>
-                                <option value="">Bad</option>
+                                <option value="good">Goog</option>
+                                <option value="bad">Bad</option>
                             </select>
                             <label for="unitStatus">Unit Status</label>
                         
@@ -133,8 +133,8 @@
                       <div class="form-group">
                         
                         <div class="textarea-container">
-                            <textarea id="reason" class="text-input" placeholder=""></textarea>
-                            <label for="reason">Your Feedback</label>
+                            <textarea id="Notes" class="text-input" placeholder=""></textarea>
+                            <label for="Notes">Your Feedback</label>
                         </div>
                            <small class="error-message"></small>
                       </div>
@@ -156,12 +156,21 @@
 
         <!-- Start pop up alert message -->
         <div class="pop-up-alert-message ">
-            <div class="d-flex align-items-center justify-content-between">
-                <span class="message"></span>
-                <span class="close-alert"><img"  src="assets/images/close.webp" loading="lazy" alt="close alert"></span>
+            <div class="flex-box">
+                <span class="message">
+                </span>
+                <span class="close-alert"><img class="im-fluid" width="30" height="30" src="assets/images/close.webp" loading="lazy" alt="close alert"></span>
             </div>
         </div>
         <!-- End pop up alert message -->
+
+        <div id="loader">
+            <div class="animation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
 
     <!-- Start copyRights section -->
     <section class="copyrights">
@@ -172,7 +181,26 @@
     <!-- End copyRights section --> 
 
     <script src="assets/js/email.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/custon_en.js"></script>
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                    "body").style.visibility = "hidden";
+                    document.querySelector(
+                    "body").style.overflow = "hidden";
+                document.querySelector(
+                    "#loader").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                    "#loader").style.display = "none";
+                    document.querySelector(
+                    "body").style.overflow = "auto";
+                document.querySelector(
+                    "body").style.visibility = "visible";
+            }
+        };
+    </script>
 
 </body>
 </html>

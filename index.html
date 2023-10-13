@@ -105,8 +105,8 @@
                         <div class="input-container">
                             <select type="text" id="unitStatus" class="select" placeholder="" required>
                                 <option  selected disabled  value=""></option>
-                                <option value=""> تعمل</option>
-                                <option value="">لا تعمل</option>
+                                <option value="good"> تعمل</option>
+                                <option value="bad">لا تعمل</option>
                             </select>
                             <label for="unitStatus">حالة الوحدة</label>
     
@@ -120,7 +120,6 @@
                         <div class="input-container">
                             <input type="text" id="alternativeUnit" class="text-input" placeholder="">
                             <label for="alternativeUnit">الوحدة البديلة المستخدمة</label>
-                            <small class="error-message"></small>
 
 
                         </div>
@@ -132,12 +131,12 @@
                 </div>
                 <div class="flex-box">
                  
-                      <div class="form-group">
+                    <div class="form-group">
+                        
                         <div class="textarea-container">
-                            <textarea id="reason" class="text-input" placeholder=""></textarea>
-                            <label for="reason">اترك ملاحضاتك</label>
-    
-                           </div>
+                            <textarea id="Notes" class="text-input" placeholder=""></textarea>
+                            <label for="Notes">ملاحظات</label>
+                        </div>
                            <small class="error-message"></small>
                       </div>
 
@@ -156,7 +155,7 @@
     <!-- End Survey Section -->
 
     <!-- Start pop up alert message -->
-    <div class="pop-up-alert-message">
+    <div class="pop-up-alert-message ">
         <div class="flex-box">
             <span class="message">
             </span>
@@ -164,6 +163,14 @@
         </div>
     </div>
     <!-- End pop up alert message -->
+
+    <div id="loader">
+        <div class="animation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 
 
 
@@ -177,5 +184,24 @@
     <script src="assets/js/email.min.js"></script>
 
    <script src="assets/js/custom.js"></script>
+   <script>
+     document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                    "body").style.visibility = "hidden";
+                    document.querySelector(
+                    "body").style.overflow = "hidden";
+                document.querySelector(
+                    "#loader").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                    "#loader").style.display = "none";
+                    document.querySelector(
+                    "body").style.overflow = "auto";
+                document.querySelector(
+                    "body").style.visibility = "visible";
+            }
+        };
+</script>
 </body>
 </html>
