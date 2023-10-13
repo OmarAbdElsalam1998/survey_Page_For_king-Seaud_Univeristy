@@ -227,10 +227,10 @@ submit_button.addEventListener("click",(e)=>{
 
 function sendEmail(){
     (function(){
-        emailjs.init("fpJZ-8MzxdLM1ChIu");
+        emailjs.init("sKV7QyH9TsieomS2K");
     })();
-    let serviceID="service_aelso9e";//email service id
-    let templateID="template_sode3gp";//email template id 
+    let serviceID="service_ssu5aus";//email service id
+    let templateID="template_077uiv7";//email template id 
     let params={
         studentName:studentName.value,
         studentNumber:studentNumber.value,

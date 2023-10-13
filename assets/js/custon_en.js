@@ -228,8 +228,8 @@ function sendEmail(){
     (function(){
         emailjs.init("fpJZ-8MzxdLM1ChIu");
     })();
-    let serviceID="service_aelso9e";//email service id
-    let templateID="template_sode3gp";//email template id 
+    let serviceID="service_ssu5aus";//email service id
+    let templateID="template_077uiv7";//email template id 
     let params={
         studentName:studentName.value,
         studentNumber:studentNumber.value,
@@ -248,7 +248,7 @@ function sendEmail(){
         alertDiv.classList.add("success","active");
         alertMessage.innerHTML=`<img src="assets/images/success.webp" loading="lazy" alt=""><span >Your message  sent successfully</span>`;
         submit_button.disabled = false;
-        submit_button.innerHTML="إرسال";
+        submit_button.innerHTML="Send";
 
 
         interval=setTimeout(()=>{

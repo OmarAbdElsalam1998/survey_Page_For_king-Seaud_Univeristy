@@ -185,10 +185,10 @@
 
    <script src="assets/js/custom.js"></script>
    <script>
-     document.onreadystatechange = function () {
+         document.onreadystatechange = function () {
             if (document.readyState !== "complete") {
                 document.querySelector(
-                    "body").style.visibility = "hidden";
+                    "body").style.display = "none";
                     document.querySelector(
                     "body").style.overflow = "hidden";
                 document.querySelector(
@@ -199,7 +199,7 @@
                     document.querySelector(
                     "body").style.overflow = "auto";
                 document.querySelector(
-                    "body").style.visibility = "visible";
+                    "body").style.display = "block";
             }
         };
 </script>
