@@ -179,7 +179,7 @@ body{
 @media (max-width:576px) {
   
 
-.main-header .navbar.sticky-nav {
+.main-header .navbar {
   height: auto;
 }
 

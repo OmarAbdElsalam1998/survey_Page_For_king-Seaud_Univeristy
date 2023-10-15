@@ -1,20 +1,3 @@
-//make header sticky and change background color when user scroll
-let main_header=document.querySelector(".main-header .navbar");
-window.onscroll=function(){
-    if(this.scrollY > 10){
-        main_header.classList.add("sticky-nav")
-
-
-    }
-    else{
-        main_header.classList.remove("sticky-nav")
-
-
-
-    }
-
-}
-
 
 
 //handilg sendin email
@@ -181,10 +164,10 @@ submit_button.addEventListener("click",(e)=>{
         submit_button.disabled = true;
         submit_button.innerHTML=`<div class="animation"><span></span><span></span><span></span></div>`;
 
-        let date=new Date(Date.now()).getDate();
+        let date=new Date().getTime();
         if(localStorage.getItem("lastTimeSendingMessage")){
-             if(date!=localStorage.getItem("lastTimeSendingMessage")){
-                
+             if(date-localStorage.getItem("lastTimeSendingMessage")>10000){
+                   
                 sendEmail();
                 localStorage.setItem("lastTimeSendingMessage",date);
 
@@ -226,10 +209,10 @@ submit_button.addEventListener("click",(e)=>{
 
 function sendEmail(){
     (function(){
-        emailjs.init("sKV7QyH9TsieomS2K");
+        emailjs.init("8Cp-QPqnch08NY8uI");
     })();
-    let serviceID="service_ssu5aus";//email service id
-    let templateID="template_077uiv7";//email template id 
+    let serviceID="service_u048nna";//email service id
+    let templateID="template_p9033zc";//email template id 
     let params={
         studentName:studentName.value,
         studentNumber:studentNumber.value,
@@ -261,7 +244,6 @@ function sendEmail(){
     }, function(error) {
         alertDiv.classList.add("error","active")
         alertMessage.innerHTML=`<img src="assets/images/error.webp" loading="lazy" alt=""><span >Sorry we can not send your Message</span>`;
-        sendEmail();
        interval= setTimeout(()=>{
         alertDiv.classList.remove("active","error");
 
